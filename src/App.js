@@ -1,26 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
+import {Route} from 'react-router';
+import {BrowserRouter} from 'react-router-dom';
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import China from './components/China';
+import AnHui from './components/AnHui';
+import ZheJiang from './components/ZheJiang';
+import ShouXian from './components/ShouXian'
 
-export default App;
+export default class App extends React.Component{
+  render () {
+    return (
+      <BrowserRouter>
+        <Route path="/" component={China}/>
+
+        <Route path="/AnHui" component={AnHui}/>
+
+        <Route path="/AnHui/ShouXian" component={ShouXian}/>
+
+        {/* 这种层级路由，匹配到/AnHui/ShouXian 时，前面两个也被匹配到了，渲染相关的组件 */}
+
+        <Route path="/ZheJiang" component={ZheJiang}/>
+      </BrowserRouter>
+    )
+  }
+}
