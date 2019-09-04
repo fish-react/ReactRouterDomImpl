@@ -1,10 +1,9 @@
 import React from 'react';
-
-export default class ShouXian extends React.Component {
+export default class WenZhou extends React.Component {
   render () {
     return (
       <div>
-        <h4>寿县</h4>
+        <h3>温州</h3>
       </div>
     )
   }
